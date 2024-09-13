@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const GitHubContributions = ({ username }) => {
+const GitGraphQLAPI = ({ username }) => {
   const [contributions, setContributions] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
