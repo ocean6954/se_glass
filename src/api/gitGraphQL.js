@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
 
 const getDateRange = (period) => {
@@ -54,52 +53,3 @@ export const fetchData = async (username, period) => {
     console.error("Error fetching GitHub contributions:", error);
   }
 };
-
-const GitGraphQL = ({ username }) => {
-  const [calendarData, setCalendarData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const fetchData = async (username, period) => {
-    setLoading(true);
-    const { from, to } = getDateRange(period);
-
-    const query = `
-        {
-          user(login: "${username}") {
-            contributionsCollection(from: "${from}", to: "${to}") {
-              contributionCalendar {
-                weeks {
-                  contributionDays {
-                    date
-                    contributionCount
-                  }
-                }
-              }
-            }
-          }
-        }
-      `;
-
-    try {
-      const response = await axios.post(
-        "https://api.github.com/graphql",
-        { query },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
-          },
-        }
-      );
-      const weeks =
-        response.data.data.user.contributionsCollection.contributionCalendar
-          .weeks;
-      setLoading(false);
-      return weeks;
-    } catch (error) {
-      console.error("Error fetching GitHub contributions:", error);
-    }
-  };
-};
-
-export default GitGraphQL;
