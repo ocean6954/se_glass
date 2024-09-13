@@ -1,0 +1,13 @@
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(54, 24px); /* 1週間7日 */
+  gap: 4px;
+}
+
+.day {
+  width: 24px;
+  height: 24px;
+  background-color: #ebedf0;
+  border-radius: 2px;
+  margin: 4px;
+}
