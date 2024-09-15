@@ -13,6 +13,7 @@
     "react-dom": "^18.3.1",
     "react-github-calender": "^1.1.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.1.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -42,7 +43,6 @@
   "proxy": "https://api.github.com/users",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC"
