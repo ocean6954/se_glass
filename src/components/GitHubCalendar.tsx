@@ -2,8 +2,22 @@ import React, { useState } from "react";
 import "./GitHubCalendar.css";
 import { fetchData } from "../api/gitGraphQL";
 
+interface day {
+  date: string;
+  contributionCount: number;
+}
+
+interface contributionDay {
+  date: string;
+  contributionCount: number;
+}
+
+interface week {
+  contributionDays: contributionDay[];
+}
+
 const GitHubCalendar = () => {
-  const [calendarData, setCalendarData] = useState([]);
+  const [calendarData, setCalendarData] = useState<week[]>([]);
   const [username, setUsername] = useState("");
 
   const [period, setPeriod] = useState("6months");
@@ -45,18 +59,26 @@ const GitHubCalendar = () => {
       <div className="calendar">
         {calendarData.map((week, weekIndex) => (
           <div key={weekIndex} className="week">
-            {week.contributionDays.map((day, dayIndex) => (
-              <div
-                key={dayIndex}
-                className="day"
-                style={{
-                  backgroundColor: getColorForContribution(
-                    day.contributionCount
-                  ),
-                }}
-                title={`${day.date}: ${day.contributionCount} contributions`}
-              ></div>
-            ))}
+            {week.contributionDays.map((day, dayIndex) => {
+              console.log("week is", week);
+              // console.log("week  type is", typeof week);
+              console.log("calendarData is", calendarData);
+              // console.log("calendarData  type is", typeof calendarData);
+              console.log("day is", day);
+
+              return (
+                <div
+                  key={dayIndex}
+                  className="day"
+                  style={{
+                    backgroundColor: getColorForContribution(
+                      day.contributionCount
+                    ),
+                  }}
+                  title={`${day.date}: ${day.contributionCount} contributions`}
+                ></div>
+              );
+            })}
           </div>
         ))}
       </div>

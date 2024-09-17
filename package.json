@@ -9,6 +9,7 @@
     "axios": "^1.7.7",
     "cors": "^2.8.5",
     "express": "^4.21.0",
+    "is-module": "^1.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-github-calender": "^1.1.0",
@@ -45,5 +46,11 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.3.6",
+    "@types/react-dom": "^18.3.0",
+    "eslint-config-react-app": "^7.0.1",
+    "typescript": "^4.9.5"
+  }
 }

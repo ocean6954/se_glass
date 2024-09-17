@@ -1,5 +1,5 @@
 import "./App.css";
-import GitHubCalendar from "./components/GitHubCalendar";
+import GitHubCalendar from "./components/GitHubCalendar.tsx";
 
 function App() {
   return (
