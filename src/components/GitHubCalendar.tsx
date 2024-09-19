@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import "./GitHubCalendar.css";
 import { fetchData } from "../api/gitGraphQL";
 
-interface day {
-  date: string;
-  contributionCount: number;
-}
-
 interface contributionDay {
   date: string;
   contributionCount: number;
