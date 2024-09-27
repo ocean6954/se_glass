@@ -57,11 +57,11 @@ export const saveContributions = (weeks: Week[]) => {
           (error) => {
             if (error) {
               console.error(
-                "Contributionの保存中にエラーが発生しました：",
+                "Contributionの保存中にエラーが発生しました : ",
                 error
               );
             } else {
-              console.log("Contributionが保存されました！");
+              console.log("Contributionが保存されました!");
             }
           }
         );
