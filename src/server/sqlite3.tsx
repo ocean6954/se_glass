@@ -49,8 +49,10 @@ export const saveContributions = (weeks: Week[]) => {
 
   db.serialize(() => {
     weeks.forEach((week) => {
+      console.log("weeksの中のweek  : ", weeks);
+
       week.contributionDays.forEach((day) => {
-        console.log("weeksの中のday : ", day);
+        console.log("weekの中のday : ", day);
         db.run(
           "INSERT INTO contributions (date, contributionCount) VALUES (?, ?);",
           [day.date, day.contributionCount],
