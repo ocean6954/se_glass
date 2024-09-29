@@ -49,7 +49,7 @@ export const saveContributions = (weeks: Week[]) => {
 
   db.serialize(() => {
     weeks.forEach((week) => {
-      console.log("weeksの中のweek  : ", weeks);
+      console.log("weeksの中のweek : ", weeks);
 
       week.contributionDays.forEach((day) => {
         console.log("weekの中のday : ", day);
@@ -75,6 +75,8 @@ export const saveContributions = (weeks: Week[]) => {
 export const fetchContributions = (
   callback: (contributions: Contribution[]) => void
 ): void => {
+  console.log("fetchContributionsのコールバック : ", callback);
+
   db.transaction((tx) => {
     tx.executeSql(
       "SELECT * FROM contributions ORDER BY date DESC;",
@@ -84,7 +86,7 @@ export const fetchContributions = (
         for (let i = 0; i < results.rows.length; i++) {
           contributions.push(results.rows.item(i));
         }
-        console.log("contributions : ", contributions);
+        console.log("fetchContributionsのcontributions : ", contributions);
         callback(contributions);
       },
       (error) => {
