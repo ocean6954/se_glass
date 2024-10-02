@@ -16,6 +16,7 @@ const getDateRange = (period) => {
 };
 
 export const fetchData = async (username, period) => {
+  console.log("fetchDataの呼び出し");
   const { from, to } = getDateRange(period);
 
   const query = `
